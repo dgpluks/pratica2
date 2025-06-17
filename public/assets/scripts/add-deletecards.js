@@ -203,7 +203,6 @@ atualizar.onclick = async (e) => {
             return;
         }
 
-        // Verifica se o id digitado é diferente do que foi retornado pelo servidor
         if (id !== String(cardExistente.id)) {
             alert("O ID não pode ser alterado.");
             return;
@@ -213,7 +212,7 @@ atualizar.onclick = async (e) => {
         let houveAlteracao = false;
 
         for (const campo of inputs) {
-            if (campo === "id") continue; // ignora id
+            if (campo === "id") continue;
             const input = document.getElementById(campo);
             const valorNovo = input?.value.trim();
 
@@ -270,7 +269,6 @@ function limparCampos() {
 
 
 function validarNumeroFormatado(valor) {
-    // Permite dígitos, ponto e vírgula
     const regex = /^[0-9.,]+$/;
     return regex.test(valor);
 }
