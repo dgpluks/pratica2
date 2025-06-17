@@ -11,10 +11,10 @@ Sugerimos o uso das seguintes ferramentas acessíveis: [FullCalendar](https://fu
 
 ## Informações do trabalho
 
-- Nome:
-- Matricula:
-- Proposta de projeto escolhida:
-- Breve descrição sobre seu projeto:
+- Nome: Daniel Gomes pereira
+- Matricula: 894057
+- Proposta de projeto escolhida: Site de filmes
+- Breve descrição sobre seu projeto: É um site que você pode escolher entre diversos filmes que estão em alta e ainda escolher entre os destaques do momento de forma dinamica
 
 **Print da tela com a implementação**
 
