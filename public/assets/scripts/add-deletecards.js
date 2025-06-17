@@ -3,6 +3,7 @@ const inputs = [
     "backdrop_path",
     "id",
     "overview",
+    "genre_ids",
     "popularity",
     "poster_path",
     "release_date",
@@ -24,15 +25,22 @@ adicionar.onclick = async (e) => {
         }
 
         const valor = input.value.trim();
-
-        // Validação para os campos que só aceitam números, ponto e vírgula
-        if (["id", "popularity", "vote_average", "vote_count"].includes(id)) {
-            if (!validarNumeroFormatado(valor)) {
-                alert(`Digite apenas números, ponto (.) e vírgula (,) no campo ${id}`);
-                return;
-            }
+    if (["id", "popularity", "vote_average", "vote_count"].includes(id)) {
+        if (!validarNumeroFormatado(valor)) {
+            alert(`Digite apenas números, ponto (.) e vírgula (,) no campo ${id}`);
+            return;
         }
+    }
 
+    if (id === "genre_ids") {
+        const ids = valor.split(",").map(n => n.trim()).filter(n => n !== "");
+        if (!ids.every(n => /^\d+$/.test(n))) {
+            alert("Digite apenas números separados por vírgula no campo 'Genero(s) do filme'");
+            return;
+        }
+        data[id] = ids.map(Number);
+        continue;
+    }
         data[id === "id" ? "id" : id] = valor;
     }
 
@@ -216,10 +224,18 @@ atualizar.onclick = async (e) => {
                         return;
                     }
                 }
-
-                if (valorNovo !== cardExistente[campo]) {
-                    cardAtualizado[campo] = valorNovo;
-                    houveAlteracao = true;
+                if (campo === "genre_ids") {
+                    const ids = valorNovo.split(",").map(n => n.trim()).filter(n => n !== "");
+                    if (!ids.every(n => /^\d+$/.test(n))) {
+                        alert("Digite apenas números separados por vírgula no campo 'Genero(s) do filme'");
+                        return;
+                    }
+                    const novosIds = ids.map(Number);
+                    if (JSON.stringify(novosIds) !== JSON.stringify(cardExistente.genre_ids || [])) {
+                        cardAtualizado.genre_ids = novosIds;
+                        houveAlteracao = true;
+                    }
+                    continue;
                 }
             }
         }

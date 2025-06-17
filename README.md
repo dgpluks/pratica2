@@ -18,8 +18,17 @@ Sugerimos o uso das seguintes ferramentas acessíveis: [FullCalendar](https://fu
 
 **Print da tela com a implementação**
 
-<< Coloque aqui uma breve explicação da implementação feita nessa etapa>>
+Primeiro, busca-se todos os valores no JSONque chamam genre_ids, a partir de um vetor que diz qual ID representa o respectivo genero (ex: 10749 → Romance). Em seguida, é feita uma contagem de quantos filmes pertencem a cada gênero.
+Esses dados são utilizados na API Chart.js, representada pelas linhas dentro desse trecho,
 
-<<  COLOQUE A IMAGEM TELA 1 AQUI >>
+new Chart(ctx, {
+});
 
-<<  COLOQUE A IMAGEM TELA 2 AQUI >>
+que é o responsável por criar um gráfico de pizza que mostra a quantidade de filmes por gênero, usando os dados obtidos durante a  execução do código.
+
+![imagem_antes_de_adicionar](./public/assets/imagens/antesAdicionar.png)
+
+![adicionando](./public/assets/imagens/adicionando.png)
+
+![imagem_depois_de_adicionar](./public/assets/imagens/depoisAdicionar.png)
+

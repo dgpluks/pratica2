@@ -192,3 +192,13 @@ body{
 .card-info{
     height: 25px;
 }
+#graficoAvaliacao {
+    width: 40% !important;
+    height: 40% !important;
+    max-width: 40%;
+}
+.sobre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

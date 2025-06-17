@@ -54,13 +54,13 @@ async function load() {
 
 
     capa_do_filme.src = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
-    trailer.src = `imagens/erro.png`;
+    trailer.src = `assets/imagens/erro.png`;
     titulo.innerText = movie.title;
     data_lancamento.textContent = "Data de lançamento: " + movie.release_date;
     descricao.innerText = movie.overview;
     nota.innerText = Number(movie.vote_average).toFixed(1) + "/10";
-    estrela_aval.src = `imagens/star.png`;
-    estrela_fav.src = `imagens/favorit-clicked.png`;
+    estrela_aval.src = `assets/imagens/star.png`;
+    estrela_fav.src = `assets/imagens/favorit-clicked.png`;
 
 
     main.append(parte_esquerda, parte_direita);
