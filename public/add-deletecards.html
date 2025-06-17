@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar/Deletar cards</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <main class="add-delete" style="display: flex; gap: 20px; max-width: 900px; margin: 0 auto;">
+        <div class="form-container" style="flex: 1;">
+            <div class="quadrado">
+                <input type="search" class="card-info" id="backdrop_path"
+                    placeholder="Caminho da imagem da página detalhe">
+                <input type="search" class="card-info" id="id" placeholder="id do filme">
+                <input type="search" class="card-info" id="overview" placeholder="Sinopse">
+                <input type="search" class="card-info" id="popularity" placeholder="Popularidade">
+                <input type="search" class="card-info" id="poster_path" placeholder="Caminho da imagem do poster">
+                <input type="search" class="card-info" id="release_date" placeholder="Data de lançamento">
+                <input type="search" class="card-info" id="title" placeholder="Título">
+                <input type="search" class="card-info" id="vote_average" placeholder="Avaliação do público">
+                <input type="search" class="card-info" id="vote_count" placeholder="Contagem dos votos">
+                <div class="botoes" style="margin-top: 10px;">
+                    <button class="adicionar" id="adicionar">CRIAR</button>
+                    <button class="atualizar" id="atualizar">ATUALIZAR</button>
+                    <button class="apagar" id="apagar">DELETAR</button>
+                    <button class="sair" id="sair" onclick="window.location.href='index.html'">Cancelar</button>
+                </div>
+            </div>
+        </div>
+        <div id="sidebar"></div>
+    </main>
+</body>
+<script src="add-deletecards.js"></script>
+
+</html>

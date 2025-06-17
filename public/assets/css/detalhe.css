@@ -1,0 +1,76 @@
+h1{
+    font-size:5vw;
+}
+nav ul {  
+    background-color: #16739e;     
+    border-top: 0.5px solid white;     
+    border-bottom: 0.5px solid white;     
+}
+nav ul li a {        
+    width: 100%; 
+}
+nav.bg-primary.border-top.border-bottom.border-white ul li:hover{
+    background-color: rgb(9, 89, 139);
+}
+
+main{
+    display: flex;
+    padding: 0 10px;
+    gap:20px;
+}
+.parte_esquerda{
+    display:flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+}
+.parte_direita{
+    display:flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.estrela_aval{
+    width: 24px;
+    height: 24px;
+}
+.divisao{
+    display: flex;
+    justify-content: space-between;
+}
+.avaliacoes{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.estrela_fav{
+    width: 160%;
+    aspect-ratio: 1;
+}
+.capa_do_filme {
+    width: 400px;             
+    height: 600px;            
+    border-radius: 24px;  
+    border: 4px solid black;  
+    overflow: hidden;          
+    object-fit: cover;         
+}
+.trailer{
+    width:80%;
+    aspect-ratio: calc(16 / 9);
+}
+.titulo{
+    align-self: center;
+    font-weight: bolder;
+}
+.favorite{
+    width: 30px;
+    height: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button.favorite{
+    background: none !important;
+    border:0px !important;
+    cursor: pointer;
+}
