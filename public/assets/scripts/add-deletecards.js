@@ -98,7 +98,7 @@ apagar.onclick = async (e) => {
     }
 
     const id = idInput.value.trim();
-    //   ========------
+   
     try {
         if (await existe(id)) {
             await removerCard(id);

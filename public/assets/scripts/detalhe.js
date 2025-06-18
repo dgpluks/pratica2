@@ -1,4 +1,5 @@
 const main = document.querySelector('main.container-fluid.mt-3.pb-5 ');
+const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
 
 async function load() {
     const id = new URLSearchParams(window.location.search).get("id");
@@ -25,6 +26,7 @@ async function load() {
     const nota = document.createElement('p');
     const estrela_aval = document.createElement('img');
     const favorite = document.createElement('button');
+    favorite.type = "button";
     const estrela_fav = document.createElement('img');
 
 
@@ -64,6 +66,54 @@ async function load() {
 
 
     main.append(parte_esquerda, parte_direita);
+
+
+
+
+  favorite.addEventListener("click", async () => {
+  if (!usuario) {
+    alert("Você precisa estar logado para favoritar um filme.");
+    return;
+  }
+
+  try {
+    const usuarioId = usuario.id;
+    const response = await fetch(`http://localhost:3000/users/${usuarioId}`);
+    const usuarioAtualizado = await response.json();
+
+    if (!Array.isArray(usuarioAtualizado.favoritos)) {
+      alert("Conta inválida para favoritar. Tente recriar sua conta.");
+      return;
+    }
+
+    const favoritos = usuarioAtualizado.favoritos;
+
+    const index = favoritos.indexOf(movie.id);
+    const estaFavorito = index !== -1;
+
+    if (estaFavorito) {
+      favoritos.splice(index, 1);
+      estrela_fav.src = "assets/imagens/favorit-unclicked.png";
+    } else {
+      favoritos.push(movie.id);
+      estrela_fav.src = "assets/imagens/favorit-clicked.png";
+    }
+
+    await fetch(`http://localhost:3000/users/${usuarioId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ favoritos })
+    });
+
+    usuario.favoritos = favoritos;
+    localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+  } catch (error) {
+    console.error("Erro ao atualizar favoritos:", error);
+    alert("Erro ao atualizar favoritos.");
+  }
+});
 }
 
 load();

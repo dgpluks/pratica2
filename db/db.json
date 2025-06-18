@@ -403,7 +403,7 @@
   "total_results": 1015300,
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "nome": "daniel",
       "email": "usuario@dominio.com",
       "senha": "senha123",
@@ -414,7 +414,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "nome": "Maria",
       "email": "maria@email.com",
       "senha": "abcdef",
@@ -427,7 +427,11 @@
       "id": "d99c",
       "nome": "daniel",
       "email": "email",
-      "senha": "email"
+      "senha": "email",
+      "adm": true,
+      "favoritos": [
+        "950387"
+      ]
     }
   ]
 }

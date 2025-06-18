@@ -92,11 +92,11 @@ function normalizeString(str) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
   }
   
-  let allMovies = []; // vai guardar todos os filmes carregados
+  let allMovies = []; 
   const searchInput = document.querySelector('input.search');
   
   function renderMoviesList(movies) {
-    divTodd.innerHTML = ''; // limpa os cards
+    divTodd.innerHTML = ''; 
     movies.forEach(renderMovie);
   }
   
@@ -162,3 +162,18 @@ function normalizeString(str) {
       }
     }, 1000);
   });
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const linkFavoritos = document.getElementById('favoritos');
+
+  linkFavoritos.addEventListener('click', (event) => {
+    const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+    if (!usuario) {
+      event.preventDefault();
+      alert('Você precisa estar logado para acessar a página de favoritos.');
+    }
+  });
+});

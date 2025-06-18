@@ -204,3 +204,15 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+
+.main-erro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vw;
+}
+.error{
+    font-size: 5rem;
+    align-self: center;
+}

@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const authButtons = document.getElementById("auth-buttons");
   const userButtons = document.getElementById("user-buttons");
 
-  // Funções utilitárias
   function mostrarBotoesLogado() {
     authButtons.classList.add("d-none");
     userButtons.classList.remove("d-none");
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     authButtons.classList.remove("d-none");
   }
 
-  // Verifica se já tem usuário logado
   const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
   if (usuario) {
     mostrarBotoesLogado();
@@ -25,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mostrarBotoesDeslogado();
   }
 
-  // LOGIN
+
   btnEntrar.addEventListener("click", async () => {
     const email = prompt("Digite seu e-mail:");
     const senha = prompt("Digite sua senha:");
@@ -52,14 +50,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // SAIR
+
   btnSair.addEventListener("click", () => {
     localStorage.removeItem("usuarioLogado");
     alert("Você saiu da conta.");
     mostrarBotoesDeslogado();
   });
 
-  // APAGAR CONTA
+
   btnApagar.addEventListener("click", async () => {
     const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
     if (!usuario) return;
@@ -81,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // CRIAR CONTA (extra opcional)
+
   btnCriar.addEventListener("click", async () => {
     const nome = prompt("Digite seu nome:");
     const email = prompt("Digite seu e-mail:");
@@ -93,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      // Verifica se já existe o usuário
       const res = await fetch(`http://localhost:3000/users?email=${email}`);
       const existing = await res.json();
       if (existing.length > 0) {
@@ -117,3 +114,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
