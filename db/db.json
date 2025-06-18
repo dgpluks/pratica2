@@ -397,22 +397,37 @@
       "video": false,
       "vote_average": 6.1,
       "vote_count": 2088
-    },
-    {
-      "id": "12345",
-      "backdrop_path": "hdhajdhd",
-      "overview": "asfsfsf",
-      "genre_ids": [
-        10749
-      ],
-      "popularity": "24242",
-      "poster_path": "sfssfsg",
-      "release_date": "12-34-3434",
-      "title": "sdsfsfs",
-      "vote_average": "2342424",
-      "vote_count": "242424234"
     }
   ],
   "total_pages": 50765,
-  "total_results": 1015300
+  "total_results": 1015300,
+  "users": [
+    {
+      "id": 1,
+      "nome": "daniel",
+      "email": "usuario@dominio.com",
+      "senha": "senha123",
+      "adm": true,
+      "favoritos": [
+        "552524",
+        "1233413"
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "Maria",
+      "email": "maria@email.com",
+      "senha": "abcdef",
+      "adm": false,
+      "favoritos": [
+        "950387"
+      ]
+    },
+    {
+      "id": "d99c",
+      "nome": "daniel",
+      "email": "email",
+      "senha": "email"
+    }
+  ]
 }

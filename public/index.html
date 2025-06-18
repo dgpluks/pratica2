@@ -46,40 +46,18 @@
     <main class="container-fluid mt-3 pb-5 ">
         <section class="destaques">
             <h4 class="fs-4">Destaques:</h4>
-            <div class="row g-4 pt-2">
-                <!-- <div class="col-6 col-md-3 col-lg-2">
-                    <div class="card h-100">
-                        <a class="link" href="filme1.html">
-                            <img class="banner" src="imagens/avengers.jpg" alt="avengers.jpg">
-                            <h3 class="title">Avengers: Infinity War</h3>
-                        </a>
-                    </div>
+            <div id="carouselDestaques" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" id="carousel-inner">
+                    <!-- Itens do carrossel serão inseridos aqui via JS -->
                 </div>
-                
-                <div class="col-6 col-md-3 col-lg-2">
-                    <div class="card h-100">
-                        <a class="link" href="filme2.html">
-                            <img class="banner" src="imagens/minecraft.jpg" alt="minecraft.jpg">
-                            <h3 class="title">A Minecraft Movie</h3>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 col-lg-2">
-                    <div class="card h-100">
-                        <a class="link" href="filme3.html">
-                            <img class="banner" src="imagens/stit.jpg" alt="stit.jpg">
-                            <h3 class="title">Lilo & Stitch</h3>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 col-lg-2">
-                    <div class="card h-100">
-                        <a class="link" href="filme4.html">
-                            <img class="banner" src="imagens/work.jpg" alt="work.jpg">
-                            <h3 class="title">A working Man</h3>
-                        </a>
-                    </div>
-                </div> -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselDestaques" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselDestaques" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
             </div>
         </section>
 

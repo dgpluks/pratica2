@@ -34,33 +34,30 @@ function renderMovie(movie) {
 
 
 const divDest = document.querySelector('main section.destaques div.row.g-4.pt-2');
-function renderDest(filmes) {
-    const card = document.createElement('div');
-    const cardClicavel = document.createElement('div');
+const carouselInner = document.getElementById('carousel-inner');
+
+function renderDest(filme, index) {
+    const item = document.createElement('div');
+    item.classList.add('carousel-item');
+    if (index === 0) item.classList.add('active');
+
     const link = document.createElement('a');
-    const banner = document.createElement('img');
-    const title = document.createElement('h3');
-    
+    link.href = `detalhe.html?id=${filme.id}`;
+    link.classList.add('d-block', 'w-100', 'text-center', 'text-decoration-none');
 
-    card.classList.add('col-6', 'col-md-3', 'col-lg-2');
-    cardClicavel.classList.add('card', 'h-100');
-    link.classList.add('link');
-    banner.classList.add("banner");
-    title.classList.add('title');
-    
+    const image = document.createElement('img');
+    image.src = `https://image.tmdb.org/t/p/w780${filme.backdrop_path}`;
+    image.classList.add('d-block', 'w-100');
+    image.alt = filme.title;
 
-    card.append(cardClicavel);
-    cardClicavel.append(link)
-    link.append(banner, title);
+    const caption = document.createElement('div');
+    caption.classList.add('carousel-caption', 'd-none', 'd-md-block', 'bg-dark', 'bg-opacity-50', 'rounded');
+    caption.innerHTML = `<h5>${filme.title}</h5><p>${filme.overview}</p>`;
 
-    link.href = `detalhe.html?id=${filmes.id}`;
-    link.id="filme";
-    
-    banner.src = `https://image.tmdb.org/t/p/w200${filmes.poster_path}`;
-    title.innerText = filmes.title;
-    
-
-    divDest.appendChild(card);
+    link.appendChild(image);
+    link.appendChild(caption);
+    item.appendChild(link);
+    carouselInner.appendChild(item);
 }
 
 
@@ -73,8 +70,8 @@ async function load() {
         .sort((a, b) => b.popularity - a.popularity)
         .slice(0, 6);
     
-    topRated.forEach(filme => {
-        renderDest(filme);
+    topRated.forEach((filme, index) => {
+        renderDest(filme, index);
     });
 
 
