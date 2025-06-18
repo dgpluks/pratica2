@@ -204,20 +204,3 @@ body{
     justify-content: center;
     align-items: center;
 }
-.favorito-icon {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    user-select: none;
-    z-index: 10;
-  
-    /* para dar um pouco de sombra e melhorar a visibilidade */
-    filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
-    transition: transform 0.2s ease;
-  }
-  .favorito-icon:hover {
-    transform: scale(1.2);
-  }

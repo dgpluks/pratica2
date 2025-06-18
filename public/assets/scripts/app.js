@@ -83,3 +83,82 @@ async function load() {
 document.addEventListener('DOMContentLoaded', () => {
   load();
 });
+
+
+
+
+
+function normalizeString(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  }
+  
+  let allMovies = []; // vai guardar todos os filmes carregados
+  const searchInput = document.querySelector('input.search');
+  
+  function renderMoviesList(movies) {
+    divTodd.innerHTML = ''; // limpa os cards
+    movies.forEach(renderMovie);
+  }
+  
+  async function load() {
+      const response = await fetch('http://localhost:3000/results');
+      allMovies = await response.json();
+  
+      const topRated = [...allMovies]
+          .sort((a, b) => b.popularity - a.popularity)
+          .slice(0, 6);
+  
+      topRated.forEach((filme, index) => {
+          renderDest(filme, index);
+      });
+  
+      renderMoviesList(allMovies);
+  }
+  
+  searchInput.addEventListener('input', () => {
+    const query = normalizeString(searchInput.value);
+    if (!query) {
+      renderMoviesList(allMovies);
+      return;
+    }
+    const filtered = allMovies.filter(movie => normalizeString(movie.title).includes(query));
+    renderMoviesList(filtered);
+  });
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    load();
+  });
+
+
+
+
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const btnContainer = document.querySelector('.button-container'); 
+  
+    function atualizarVisibilidadeAdmin() {
+      const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+      if (usuario && usuario.adm) {
+        btnContainer.style.display = "block"; 
+      } else {
+        btnContainer.style.display = "none"; 
+      }
+    }
+  
+
+    atualizarVisibilidadeAdmin();
+
+    window.addEventListener("storage", () => {
+      atualizarVisibilidadeAdmin();
+    });
+    let usuarioAtual = JSON.stringify(JSON.parse(localStorage.getItem("usuarioLogado")));
+  
+    setInterval(() => {
+      const usuarioNovo = JSON.stringify(JSON.parse(localStorage.getItem("usuarioLogado")));
+      if (usuarioNovo !== usuarioAtual) {
+        usuarioAtual = usuarioNovo;
+        atualizarVisibilidadeAdmin();
+      }
+    }, 1000);
+  });
