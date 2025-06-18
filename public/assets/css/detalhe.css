@@ -74,3 +74,6 @@ button.favorite{
     border:0px !important;
     cursor: pointer;
 }
+main {
+  margin-bottom: 3rem !important; /* Espaço suficiente para o footer */
+}

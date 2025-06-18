@@ -34,3 +34,6 @@ nav.bg-primary.border-top.border-bottom.border-white ul li:hover{
 .w-75 button.btn.btn-primary.mb-3.w-100:hover{
     background-color: rgb(5, 65, 102);
 }
+main {
+  margin-bottom: 3rem !important; /* Espaço suficiente para o footer */
+}

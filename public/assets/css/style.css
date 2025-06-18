@@ -216,3 +216,6 @@ body{
     font-size: 5rem;
     align-self: center;
 }
+main {
+  margin-bottom: 3rem !important; /* Espaço suficiente para o footer */
+}
